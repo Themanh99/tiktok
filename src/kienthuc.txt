@@ -33,6 +33,8 @@ clean up function
 được gọi trước khi component unmout luôn gọi trước call back
 XIn chao ba con
 
+XIn chao anh em
+
 
 
 
