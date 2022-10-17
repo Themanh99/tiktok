@@ -32,6 +32,8 @@ nên sẽ dùng TH 2
 clean up function
 được gọi trước khi component unmout luôn gọi trước call back
 
+XIn chao anh em
+
 
 
 
