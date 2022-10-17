@@ -31,7 +31,7 @@ nên sẽ dùng TH 2
 // useEffect với timeer
 clean up function
 được gọi trước khi component unmout luôn gọi trước call back
-
+Test conflict
 
 
 
