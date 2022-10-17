@@ -1,0 +1,37 @@
+useState:
+// 1 la tham số khởi tạo . chỉ lấy lần đầu
+// từ lần thứ 2 sẽ lấy giá trị lần khởi tạo trước . 
+  const [counter , setCounter] = useState(1)
+
+  Component sẽ được render lại khi gọi setState
+  Khi thực hiện tính toán có thể đẩy giá trị vào làm biến initState để tối ưu hệ thống
+  Oneway-binding : là sửa giá trị 1 chiều (thay đổi ở màn hình thì giá trị thay đổi)
+  Twoway-binding : cả 2 chiều
+
+  //Mounted và Unmounted (gắn vào vào gỡ ra)
+Gặp khi làm việc với Component
+useEffect:
+thực hiện khi muốn sử dụn side effect - thay đổi dữ liệu của chương trình
+useEffect luôn luôn được gọi sau khi component mounted
+
+1.Update DOM ( thường dùng TH 1)
+Có 3 trường hợp 
+useEffect(callback) -> ít dùng
+-gọi callback mỗi khi component re-render lại
+-gọi callback sau khi component thêm element vào DOM
+-
+useEffect(callback,[])-> dung de call api 1 lần , mà k cần thực hiện gen lại
+useEffect(callback,[depen])-> call back sẽ được gọi lại mỗi khi depen thay đổi
+2.Call API
+nếu dùng TH 1 thì sẽ bị th call api liền tục ( dính vòng lặp)
+nên sẽ dùng TH 2 
+3.listion DOM events
+-Scroll
+-Resize
+// useEffect với timeer
+clean up function
+được gọi trước khi component unmout luôn gọi trước call back
+
+
+
+
