@@ -59,5 +59,7 @@ Có thể sửa lại giá trị ngược lại
 ghi nhớ lại các props của 1 component để tránh render lại component không cần thiết
 nó sẽ ghi lại tất cả các props của component đó . nếu có 1 props thay đổi thì nó sẽ render lại
 -useCallback() \
-
-
+tránh tạo ra những cái function mới k cần thiết trong component tránh component render lại không cần thiết
+trong thực tế 1 component nhận rất nhiều loại props 
+nếu sử dụng reactMemo thì các function phải sử dụng useCallback cho function để tránh render lại
+Còn nếu k dung Memo thì k dùng callback
