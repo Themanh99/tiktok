@@ -31,10 +31,33 @@ nên sẽ dùng TH 2
 // useEffect với timeer
 clean up function
 được gọi trước khi component unmout luôn gọi trước call back
-XIn chao ba con
-
-XIn chao anh em
 
 
+
+
+https://icons.getbootstrap.com/icons/three-dots-vertical/
+trello
+-useEffect quy trình
+1. cập nhật lại state
+2.cập nhật lại DOM
+3.Render lại UI
+4.Gọi cleanup nếu deps thay đổi
+5.Gọi useEffect callback
+
+-useLayoutEffect()  quy trình thường dùng khi bạn setState ở trong 1 hàm xong lại setState đó trong useEffect với điều kiện nào đó  -> hiện tượng nhấp nháy -> sử dụng useLayoutEffect 
+1.Cập nhật lại state
+2.Cập nhật lại DOM
+3.Gọi cleanup nếu deps thay đổi (sync)
+4.Gọi useLayoutEffect callbacl(sync)
+5.Render lại UI
+
+
+-useRef()
+useRef luôn luôn trả về 1 object với thuộc tính là curent . truy câp qua nó để trả về giá trị
+Có thể sửa lại giá trị ngược lại
+-useMemo() - ghi nhớ laf Higher order component (HOC)
+ghi nhớ lại các props của 1 component để tránh render lại component không cần thiết
+nó sẽ ghi lại tất cả các props của component đó . nếu có 1 props thay đổi thì nó sẽ render lại
+-useCallback() \
 
 
