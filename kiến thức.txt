@@ -66,18 +66,3 @@ Còn nếu k dung Memo thì k dùng callback
 
 -useMemo() - khác React.memo
 dùng để tránh thực hiện lại 1 logic không cần thiết
-
--useReducer() - tương tự với redux
-giúp cho việc sử dụng state
-useState làm được gì thì dùng useReducer được
-Lúc nào thì dùng:
-useState thì dùng trong th state đơn giản (1 cấp , số object , số state ít , ..)
-useReducer phù hợp trong tình huống state phức tạp hơn (array , oject trong mảng , nhiều state , ....)
-// useState 
-1. Init state : khoi tao biến
-2. Action : thực hiện hành động update state
-//useReducer
-1. Init state 
-2. Action 
-3. Reducer
-4. Dispatch
