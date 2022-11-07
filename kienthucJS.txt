@@ -1,0 +1,61 @@
+1,function là gì :
+-là một chương trình con có thể gọi được ở bên ngoài hoặc trong chính nó
+truyền đến 1 hàm và 1 hàm trả về giá trị
+-Khai báo:
+Declaration function_name :
+function nam_func(parameter){} 
+// parameter sẽ sử dụng được trong phạm vi scope dấu {}
+Expression function:
+var name = function(parameter){}
+//
+Arrow function:
+var  arrow = (param1,...) => {}
+
+-Gọi hàm:
+function_name(tham số truyền)
+
+Hoisting:
+Nó cho phép sử dụng hàm trước khi khai báo trong cùng phạm vi
+chỉ hoạt động với Declaration function . không hoạt động với Expression function
+
+function scope:phạm vi sử dụng biến 
+nơi một phần tử (element), dữ liệu (data)  hoặc giá trị (value) có thể sử dụng được
+ biến được define trong 1 ham sẽ không dk truy cập bới bất kì đâu ngoài hàm
+có thể khai báo 1 hàm bên trong 1 hàm khác và sử dụng tất cả các biến của hàm cha chưa nó
+NGoài ra có thể khai báo biến global 
+
+Toán tử 3 ngôi:sử dụng gán biến điều kiện đơn giản
+var kq = điều kiện ? `vế thứ 2` : `vế thứ 3`
+nếu vế thứ nhất điều kiện thỏa mãn lấy vế thứ 2 ngược lại lấy vế thứ 3
+Closures:
+
+
+Callback:
+Nghĩa là hàm được truyền qua đối số khi gọi qua hàm khác
+thỏa mã 2 dki là đối số : là hàm và được truyền qua đối số
+được gọi lại trong hàm nhận đối số
+
+Vòng lặp:
+for
+for/in
+for/of
+while
+do/while
+
+Array:
+map():đối số truyền vào phải là 1 function - không truyền vào thì sẽ lỗi undefined is not function
+reduce(): 
+
+
+Html DOM:viết tắt của document object model - mô hình các đối tượng tài liệu
+DOM được dùng để truy xuất và thao tác trên các tài liệu có cấu trúc HTML, XML bằng js hay PHP
+DOM có 3 thành phần :
+element - atribu - text
+JSON:Javascript object notation là 1 định dạng dữ liệu
+
+JSOn có thể là number, object, array, null , boolean
+Stringify(chuyển đổi kiểu) từ JS sang JSON
+/Parse (về lại ban đầu) JSON về JStypesEWSHFIREDHGBVDFJKV
+
+
+
