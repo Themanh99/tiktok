@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <div class="heart">
+        <div class="left"></div>
+        <div class="right"></div>
+        <p style="margin-left: 30%;font-size: 25px;">Anh yêu Loan</p>
+    </div>
+    <div id="container">
+        <div class="cover">
+            <div class="front">
+                <img src="https://thuthuatnhanh.com/wp-content/uploads/2019/12/anh-girl-rang-khenh.jpg">
+            </div>
+            <div class="back">
+                <img src="https://thuthuatnhanh.com/wp-content/uploads/2019/12/anh-girl-rang-khenh.jpg">
+            </div>
+            <div class="top">
+                <img src="https://giupban.com.vn/wp-content/uploads/2019/09/anh-hot-girl-lanh-lung-12.jpg">
+            </div>
+            <div class="bottom">
+                <img src="https://nhakhoachoban.vn/wp-content/uploads/2019/09/bi-mat-cua-chiec-rang-khenh-3-1.jpg">
+            </div>
+            <div class="left">
+                <img src="https://image.thanhnien.vn/660/uploaded/phunggiao/2018_12_03/misthy-2_layc.jpg">
+            </div>
+            <div class="right">
+                <img src="https://znews-photo.zadn.vn/w660/Uploaded/mdf_uswreo/2019_01_30/13.jpg">
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: light-blue;
+        }
+
+        #container {
+            width: 350px;
+            height: 350px;
+            margin: auto;
+            perspective: 880px;
+            margin-top: 110px;
+        }
+
+        .heart {
+            width: 320px;
+            height: 200px;
+            top: 70%;
+            left: 50%;
+            z-index: 1;
+            display: block;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            animation: heart 1s ease infinite
+        }
+
+        @keyframes heart {
+            96% {
+                transform: translate(-50%, -50%) scale(.8, .8)
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1, 1)
+            }
+        }
+
+        .heart div {
+            background: #ff0000;
+            width: 155px;
+            height: 250px;
+            top: 40px;
+            display: block;
+            position: absolute;
+            border-radius: 50%
+        }
+
+        .left {
+            left: 45px;
+            transform: rotate(330deg);
+        }
+
+        .right {
+            right: 45px;
+            transform: rotate(30deg);
+        }
+
+        
+        .cover {
+            width: 400px;
+            height: 400px;
+            animation: flip-animate 20s linear infinite;
+            /*   Làm xoay các ảnh */
+            transform-style: preserve-3d;
+            /*   các thành phần bên trong class cover sẽ hiển thị dưới dạng 3D */
+        }
+
+        #container .cover div {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+        }
+
+        #container .cover div img {
+            width: 400px;
+            height: 400px;
+        }
+
+        #container .cover .front {
+            transform: translateZ(200px);
+            /*   định vị lại ảnh trong class front dọc theo trục z trong không gian 3D */
+        }
+
+        #container .cover .back {
+            transform: rotateY(180deg) translateZ(200px);
+            /*   xoay ảnh theo trục y là 180 độ và dịch chuyển đến trục Z */
+        }
+
+        #container .cover .left {
+            transform: rotateY(-90deg) translateX(-200px);
+            /*   xoay ảnh theo trục y là -90 độ và dịch chuyển đến trục X */
+            transform-origin: left;
+            /*   Cho phép dịch chuyển phần tử sang trái */
+
+        }
+
+        #container .cover .right {
+            transform: rotateY(90deg) translateX(200px);
+            /*   xoay ảnh theo trục Y là 90 độ và dịch chuyển đến trục X */
+            transform-origin: right;
+            /*   Cho phép dịch chuyển phần tử sang phải */
+        }
+
+        #container .cover .top {
+            transform: rotateX(-90deg) translateY(-200px);
+            /*   xoay ảnh theo trục X là -90 độ và dịch chuyển đến trục Y */
+            transform-origin: top;
+            /*   Cho phép dịch chuyển phần tử lên trên */
+        }
+
+        #container .cover .bottom {
+            transform: rotateX(90deg) translateY(200px);
+            /*   xoay ảnh theo trục X là 90 độ và dịch chuyển đến trục Y */
+            transform-origin: bottom;
+            /*   Cho phép dịch chuyển phần tử xuống dưới */
+        }
+
+        @keyframes flip-animate {
+            0% {
+                transform: rotateY(0);
+            }
+
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+
+        /* điều khiển các hiệu ứng của thuộc tính animation */
+    </style>
+</body>
+
+</html>
