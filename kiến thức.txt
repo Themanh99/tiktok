@@ -66,3 +66,31 @@ Còn nếu k dung Memo thì k dùng callback
 
 -useMemo() - khác React.memo
 dùng để tránh thực hiện lại 1 logic không cần thiết
+
+
+-Context trong React:
+trong React các dữ liệu trong các component phải được chia sẻ với nhau 
+Bằng cách đưa dữ liệu lên local state . Local state sẽ phân phối dữ liệu Context giúp thực hiện điều này 
+-Context cung cấp cho chúng ta cách để thực hiện chia sẻ dữ liệu tới các component trong cây mà không cần truyền dữ liệu qua props theo từng cấp bậc.
+Khi truyền dữ liệu qua props thì sẽ phải đi từ cha vào con . nếu muốn truyền qua component cháu thì sẽ rất phức tạp -> context sẽ giải quyết việc truyền dữ liệu đơn giản hơn
+
+Cách sử dụng:khai báo biến MessageContext = React.createContext()
+ở component cần chia sẽ dữ liệu gọi đến this.context
+ở component chia sẻ dữ liệu ta gọi <MessageContext.Provider value="giá trị cần chia sẻ (this.context)">Component con</>
+Context APi :
+Provider và Consumer
+
+-Fragments trong React:
+Sử dụng để sửa lỗi sai cú pháp JSX
+ví dụ: có component cha dạng table tr và 1 component con chỉ render ra  các cột td
+nếu ở component con ta lồng thẻ div vào khi render component cha sẽ có dang table tr div td nó sẽ phá vỡ cấu trúc của table 
+-> sử dụng fragment lúc này
+ở ví dụ trên component con chỉ cần lồng <React.Fragment> thay vì dùng div
+Cú pháp viết Fragment:2 cách viết 1 là viết rõ <React.Fragment> hoặc là dùng dấu <></> viết như này thì sẽ không thể dùng với lists và keys .
+
+-Render props :không phải là một API của React, mà là một kĩ thuật xử lý việc chia sẻ logic giữa các React Component bằng cách sử dụng prop có value như một function.
+Trong React tái sử dụng các component rất cần thiết ,bởi vậy họ cùng cấp 1 partten giúp việc xây dựng vào tái sử dụng props đó là Render props
+Nó thực hiện bằng truyền vào component 1 props có value như 1 function (có sử dụng trong react-router)
+
+
+
