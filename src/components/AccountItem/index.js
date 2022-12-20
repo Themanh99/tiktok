@@ -6,10 +6,10 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles)
 
-function AccountItem(props) {
+function AccountItem() {
     return (
         <div className={cx('wrapper')}>
-            <img src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/7c520f5b1b7d0e446aa982353e422894~c5_100x100.jpeg?x-expires=1671292800&x-signature=%2FDUIVfF7EI6IWWoEI3irB3kzRqQ%3D" alt='Manh' className={cx('avatar')} />
+            <img src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/be22b8593ea95c8835d47f4b5309ec16~c5_100x100.jpeg?x-expires=1671469200&x-signature=h3xKNqkCQJjuUTj%2B9rE%2Fr59zJGw%3D" alt='Manh' className={cx('avatar')} />
             <div className={cx('info')}>
                 <h4 className={cx('name')}>
                     <span>Chu The Manh</span>
