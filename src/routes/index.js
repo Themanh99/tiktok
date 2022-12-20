@@ -11,7 +11,7 @@ const publicRoutes = [
     { path: '/', component: Home },
     { path: '/following', component: Following },
     { path: '/upload', component: Upload, layout: HeaderOnly },
-    { path: '/profile', component: Profile },
+    { path: '/@:nickname', component: Profile },
     { path: '/search', component: Search, layout: null },
 ]
 // cần đăng nhập mới xem được
