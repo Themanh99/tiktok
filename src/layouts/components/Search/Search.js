@@ -8,8 +8,8 @@ import styles from '../Search/Search.module.scss';
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Wrapper as PopperWrapper } from '../../../components/Popper';
-import { SearchIcon } from '../../../components/Icons';
-import AccountItem from '../../../components/AccountItem'
+import { SearchIcon } from '../../../components/Icons/Icons';
+import AccountItem from '../../../components/AccountItem/AccountItem'
 import { useDebounce } from '../../../hooks/index'
 import * as searchServices from '../../../services/searchServices'
 

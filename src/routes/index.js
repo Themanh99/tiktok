@@ -1,9 +1,9 @@
-import Home from '../pages/Home'
-import Following from '../pages/Following'
-import Upload from '../pages/Upload'
-import Profile from '../pages/Profile'
-import Search from '../pages/Search'
-import HeaderOnly from '../layouts/HeaderOnly'
+import Home from '../pages/Home/Home'
+import Following from '../pages/Following/Following'
+import Upload from '../pages/Upload/Upload'
+import Profile from '../pages/Profile/Profile'
+import Search from '../pages/Search/Search'
+import HeaderOnly from '../layouts/HeaderOnly/HeaderOnly'
 import config from '../config'
 
 
