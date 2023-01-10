@@ -7,7 +7,7 @@ import { faToggleOff } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles)
 
-function Menuitem({ data, onClick }) {
+function MenuItem({ data, onClick }) {
     const classes = cx('menu-item', {
         separate: data.separate,
     });
@@ -22,4 +22,4 @@ function Menuitem({ data, onClick }) {
     </Button>
 }
 
-export default Menuitem;
+export default MenuItem;
