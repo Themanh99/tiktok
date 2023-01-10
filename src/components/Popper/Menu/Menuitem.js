@@ -4,6 +4,7 @@ import styles from '../Menu/Menu.module.scss'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faToggleOff } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 
 const cx = classNames.bind(styles)
 
@@ -21,5 +22,8 @@ function MenuItem({ data, onClick }) {
         {data.title}
     </Button>
 }
-
+MenuItem.propTypes = {
+    data: PropTypes.object.isRequired,
+    onClick: PropTypes.func,
+}
 export default MenuItem;

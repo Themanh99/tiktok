@@ -7,11 +7,11 @@ import HeadlessTippy from '@tippyjs/react/headless';
 import styles from '../Search/Search.module.scss';
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Wrapper as PopperWrapper } from '../../../Popper';
-import { SearchIcon } from '../../../Icons';
-import AccountItem from '../../../AccountItem'
-import { useDebounce } from '../../../../hooks/index'
-import * as searchServices from '../../../../apiServices/searchServices'
+import { Wrapper as PopperWrapper } from '../../../components/Popper';
+import { SearchIcon } from '../../../components/Icons';
+import AccountItem from '../../../components/AccountItem'
+import { useDebounce } from '../../../hooks/index'
+import * as searchServices from '../../../services/searchServices'
 
 
 const cx = classNames.bind(styles)

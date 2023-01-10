@@ -13,15 +13,15 @@ import {
     faSignOut,
     faUser
 } from '@fortawesome/free-solid-svg-icons';
-import Button from '../../../Button'
-import Menu from '../../../Popper/Menu';
+import Button from '../../../components/Button'
+import Menu from '../../../components/Popper/Menu';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
-import { InboxIcon, MessageIcon, UploadIcon } from '../../../Icons/index';
-import Image from '../../../Image/index';
+import { InboxIcon, MessageIcon, UploadIcon } from '../../../components/Icons/index';
+import Image from '../../../components/Image/index';
 import Search from '../Search';
 import { Link } from 'react-router-dom';
-import routesConfig from '../../../../config/routes'
+import config from '../../../config'
 
 const cx = classNames.bind(styles)
 
@@ -105,7 +105,7 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <Link to={routesConfig.home} className={cx('logo-link')}><svg height={42} width={118} alt="TikTok">
+                    <Link to={config.routes.home} className={cx('logo-link')}><svg height={42} width={118} alt="TikTok">
                         <g clipPath="url(#clip0)">
                             <path d="M9.87537 16.842V15.7233C9.49211 15.6721 9.10246 15.6401 8.70003 15.6401C3.90288 15.6338 0 19.5399 0 24.3475C0 27.2947 1.46917 29.9031 3.71764 31.4822C2.26763 29.9287 1.37974 27.8381 1.37974 25.5494C1.37974 20.8121 5.17403 16.9507 9.87537 16.842Z" fill="#25F4EE" />
                             <path d="M10.0862 29.5259C12.2261 29.5259 13.9763 27.819 14.053 25.6965L14.0594 6.72822H17.5215C17.4512 6.33824 17.4129 5.93548 17.4129 5.52632H12.686L12.6796 24.4946C12.603 26.6171 10.8527 28.324 8.71286 28.324C8.04854 28.324 7.42255 28.1578 6.86682 27.8637C7.58224 28.8674 8.75758 29.5259 10.0862 29.5259Z" fill="#25F4EE" />
