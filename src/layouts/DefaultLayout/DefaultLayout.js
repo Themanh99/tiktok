@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/Header/Header'
-import Sidebar from './Sidebar/Sidebar'
+import Sidebar from '../components/Sidebar/Sidebar'
 import styles from '../DefaultLayout/DefaultLayout.module.scss'
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
