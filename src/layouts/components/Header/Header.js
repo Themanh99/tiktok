@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../Header/Header.module.scss'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -22,6 +22,8 @@ import Image from '../../../components/Image/Image';
 import Search from '../Search/Search';
 import { Link } from 'react-router-dom';
 import config from '../../../config'
+import Login from '../Login/Login';
+import { useSelector } from 'react-redux';
 
 const cx = classNames.bind(styles)
 
@@ -62,45 +64,54 @@ const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faMoon} />,
         title: 'Dark mode'
-    }
+    },
+]
+const userMenu = [
+    {
+        icon: <FontAwesomeIcon icon={faUser} />,
+        title: 'View profile',
+        to: '/@hoaa',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faCoins} />,
+        title: 'Get coins',
+        to: '/coin',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faGear} />,
+        title: 'Settings',
+        to: '/settings',
+    },
+    ...MENU_ITEMS,
+    {
+        icon: <FontAwesomeIcon icon={faSignOut} />,
+        title: 'Log out',
+        to: '/',
+        separate: true,
+    },
 ]
 
 function Header() {
 
+    const [showdialog, setShowDialog] = useState(false);
+
+    const handleShowDialog = () => {
+        setShowDialog(true);
+    }
+    const handleHideDialog = () => {
+        setShowDialog(false);
+    }
+    const currentUser = useSelector((state) => state.auth.login.currentUser);
+
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
             case 'language':
-                // Handle change language
+                window.alert('Language changed');
                 break;
             default:
         }
     }
-    const currentUser = true;
 
-    const userMenu = [
-        {
-            icon: <FontAwesomeIcon icon={faUser} />,
-            title: 'View profile',
-            to: '/@hoaa',
-        },
-        {
-            icon: <FontAwesomeIcon icon={faCoins} />,
-            title: 'Get coins',
-            to: '/coin',
-        },
-        {
-            icon: <FontAwesomeIcon icon={faGear} />,
-            title: 'Settings',
-            to: '/settings',
-        },
-        ...MENU_ITEMS,
-        {
-            icon: <FontAwesomeIcon icon={faSignOut} />,
-            title: 'Log out',
-            to: '/logout',
-            separate: true,
-        },
-    ];
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -155,18 +166,23 @@ function Header() {
                         </>
                     ) : (
                         <>
-                            <Button text><svg className={cx('icon_')} width="1em" data-e2e height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <Button text onClick={handleShowDialog}><svg className={cx('icon_')} width="1em" data-e2e height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fillRule="evenodd" clipRule="evenodd" d="M8 2.5C7.58579 2.5 7.25 2.83579 7.25 3.25V7.25H3.25C2.83579 7.25 2.5 7.58579 2.5 8C2.5 8.41421 2.83579 8.75 3.25 8.75H7.25V12.75C7.25 13.1642 7.58579 13.5 8 13.5C8.41421 13.5 8.75 13.1642 8.75 12.75V8.75H12.75C13.1642 8.75 13.5 8.41421 13.5 8C13.5 7.58579 13.1642 7.25 12.75 7.25H8.75V3.25C8.75 2.83579 8.41421 2.5 8 2.5Z" />
                             </svg>Upload</Button>
-                            <Button primary>Log in</Button>
+                            <Button primary onClick={handleShowDialog}>Log in</Button>
+                            {showdialog &&
+                                <div className={cx('divmodalcontainer')}><div className={cx('divmodalmask')}></div>
+                                    <Login show={showdialog} onHide={handleHideDialog} />
+                                </div>
+                            }
                         </>
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src="https://yt3.ggpht.com/yti/AJo0G0mhC2FC3SYWxpgV1Ups3a3pw0_wW2EQtt71_fg77Q=s88-c-k-c0x00ffffff-no-rj-mo"
-                                alt="ManhCT"
+                                src={currentUser.data.avatar}
+                                alt={currentUser.data.nickname}
                             />
                         ) : (
                             <button className={cx('more-btn')}>

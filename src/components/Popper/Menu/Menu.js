@@ -1,11 +1,14 @@
 import Tippy from '@tippyjs/react/headless';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../Menu/Menu.module.scss'
 import classNames from 'classnames/bind'
 import { Wrapper as PopperWrapper } from '..'
 import MenuItem from './MenuItem'
 import Header from './Header';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { logOut } from '../../../services/authServices';
 
 const cx = classNames.bind(styles)
 const defaultFn = () => { };
@@ -14,21 +17,35 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn 
 
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1]
+    const currentUser = useSelector((state) => state.auth.login.currentUser);
+    const id = currentUser?.data.id;
+    const token = currentUser?.meta.token;
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    useEffect(() => {
+        const handleLogOut = () => {
+            logOut(dispatch, navigate, id, token);
+        };
+        handleLogOut();
+    }, [dispatch, navigate, id, token]);
 
     const renderItems = () => {
         return current.data.map((item, index) => {
             const isParent = !!item.children;
-            return <MenuItem
-                key={index}
-                data={item}
-                onClick={() => {
-                    if (isParent) {
-                        setHistory(prev => [...prev, item.children])
-                    } else {
-                        onChange(item)
-                    }
-                }} />
-
+            return (
+                <MenuItem
+                    key={index}
+                    data={item}
+                    onClick={() => {
+                        if (isParent) {
+                            setHistory(prev => [...prev, item.children])
+                        }
+                        else {
+                            onChange(item)
+                        }
+                    }}
+                />
+            )
         })
     }
 
@@ -56,6 +73,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn 
             placement='bottom-end'
             render={renderResult}
             onHide={handleResetToFirstMenu}
+            arrow={true}
         >
             {children}
         </Tippy>

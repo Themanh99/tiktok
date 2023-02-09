@@ -4,3 +4,58 @@
   padding: 20px 0 26px 8px;
   margin-left: -18px;
 }
+
+.wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+  color: var(--white);
+}
+
+.log-in {
+  border-top: 1px solid #e3e3e4;
+  width: 100%;
+  height: 156px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+
+  & > p {
+    font-size: 1.6rem;
+    color: rgba(22, 24, 35, 0.5);
+    line-height: 22px;
+    margin-bottom: 20px;
+  }
+}
+.btnlogin {
+  height: 48px;
+  color: var(--primary);
+  background-color: var(--white);
+  font-weight: 800;
+  font-size: 1.8rem;
+
+  &:hover {
+    background-color: rgba(254, 44, 85, 0.06);
+    color: var(--primary);
+  }
+}
+
+// .scrollbar {
+//   height: 188.208px;
+//   transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1) scale(2.53975) translateZ(-1.53975px)
+//     translateZ(-2px);
+//   position: absolute;
+//   padding: 0 4px;
+//   top: 0;
+//   transition: opacity 0.5s;
+//   opacity: 0;
+//   right: 0;
+//   transform-origin: right top;
+// }
+// .scrollbar_thumb {
+//   width: 6px;
+//   height: 100%;
+//   border-radius: 3px;
+//   background: rgba(22, 24, 35, 0.06);
+// }

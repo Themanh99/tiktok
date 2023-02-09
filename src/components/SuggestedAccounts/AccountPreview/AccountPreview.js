@@ -4,6 +4,7 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../../components/Button/Button';
 import styles from '../AccountPreview/AccountPreview.module.scss';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -21,10 +22,10 @@ function AccountPreview({ data }) {
                 </Button>
             </div>
             <div className={cx('body')}>
-                <p className={cx('nickname')}>
+                <Link to={`/@${data.nickname}`} className={cx('nickname')}>
                     <strong>{data.nickname}</strong>
                     {data.tick && <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />}
-                </p>
+                </Link>
                 <p className={cx('name')}>{`${data.first_name} ${data.last_name}`}</p>
                 <p className={cx('analytics')}>
                     <strong className={cx('value')}>{data.followers_count}</strong>
