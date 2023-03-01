@@ -33,15 +33,15 @@ export const registerUser = async (user, type, dispatch) => {
     }
 };
 
-export const logOut = async (dispatch, navigate, id, token) => {
-    dispatch(logOutStart());
-    try {
-        const res = await httpRequest.post('/auth/logout', id, {
-            headers: { Authorization: `Brear ${token}` }
-        });
-        dispatch(logOutSuccess(res));
-        navigate('/');
-    } catch (error) {
-        dispatch(logOutFailed());
-    }
+export const logOut = async (dispatch, navigate, user, token) => {
+    // dispatch(logOutStart());
+    // try {
+    //     // const res = await httpRequest.post('/auth/logout', id, {
+    //     //     headers: { Authorization: `Brear ${token}` }
+    //     // });
+    //     dispatch(logOutSuccess());
+    //     navigate('/');
+    // } catch (error) {
+    //     dispatch(logOutFailed());
+    //}
 };

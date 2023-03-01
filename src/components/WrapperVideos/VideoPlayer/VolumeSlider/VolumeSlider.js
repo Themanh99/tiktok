@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import styles from './VolumeSlider.module.scss';
-import { useVolumeStore } from '../VolumeSlider/';
+import { useVolumeStore } from '../../../../context';
 import { VolumeIcon, VolumeOffIcon } from '../../../Icons/Icons';
 
 const cx = classNames.bind(styles);

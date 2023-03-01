@@ -45,9 +45,9 @@ const authSlice = createSlice({
             state.register.success = false;
         },
         logOutStart: (state) => {
-            state.logout.isFeatching = true;
+            state.logout.isFeatching = false;
         },
-        logOutSuccess: (state, action) => {
+        logOutSuccess: (state) => {
             state.logout.isFeatching = false;
             state.login.currentUser = null;
             state.logout.error = false;

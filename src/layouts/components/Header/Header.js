@@ -66,32 +66,10 @@ const MENU_ITEMS = [
         title: 'Dark mode'
     },
 ]
-const userMenu = [
-    {
-        icon: <FontAwesomeIcon icon={faUser} />,
-        title: 'View profile',
-        to: '/@hoaa',
-    },
-    {
-        icon: <FontAwesomeIcon icon={faCoins} />,
-        title: 'Get coins',
-        to: '/coin',
-    },
-    {
-        icon: <FontAwesomeIcon icon={faGear} />,
-        title: 'Settings',
-        to: '/settings',
-    },
-    ...MENU_ITEMS,
-    {
-        icon: <FontAwesomeIcon icon={faSignOut} />,
-        title: 'Log out',
-        to: '/',
-        separate: true,
-    },
-]
+
 
 function Header() {
+    const currentUser = useSelector((state) => state.auth.login.currentUser);
 
     const [showdialog, setShowDialog] = useState(false);
 
@@ -101,16 +79,42 @@ function Header() {
     const handleHideDialog = () => {
         setShowDialog(false);
     }
-    const currentUser = useSelector((state) => state.auth.login.currentUser);
-
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
             case 'language':
                 window.alert('Language changed');
                 break;
+            case 'Log out':
+                window.alert('Language changed');
+                break;
             default:
         }
     }
+
+    const userMenu = [
+        {
+            icon: <FontAwesomeIcon icon={faUser} />,
+            title: 'View profile',
+            to: `/@`,
+        },
+        {
+            icon: <FontAwesomeIcon icon={faCoins} />,
+            title: 'Get coins',
+            to: '/coin',
+        },
+        {
+            icon: <FontAwesomeIcon icon={faGear} />,
+            title: 'Settings',
+            to: '/settings',
+        },
+        ...MENU_ITEMS,
+        {
+            icon: <FontAwesomeIcon icon={faSignOut} />,
+            title: 'Log out',
+            to: '/',
+            separate: true,
+        },
+    ]
 
     return (
         <header className={cx('wrapper')}>

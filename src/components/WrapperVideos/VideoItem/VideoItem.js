@@ -11,9 +11,15 @@ import AccountPreview from '../../SuggestedAccounts/AccountPreview/AccountPrevie
 import Tippy from '@tippyjs/react/headless';
 import Image from '../../Image/Image';
 import HashTag from '../../HashTag/HashTag';
+import { useCurrentVideoPlayingStore } from '../../../redux/hooks'
+import { useAuthModal } from '../../../hooks';
+import { useEffect, useRef, useState } from 'react';
+import { useElementOnScreen } from '../../../hooks';
 const cx = classNames.bind(styles);
 
-function VideoItem(data) {
+function VideoItem({ data, indexVideo }) {
+    const { dispatch, currentVideoPlayingSlice } = useCurrentVideoPlayingStore();
+    const { loginModal, setShowLoginModal } = useAuthModal();
 
     const renderPreview = (props) => {
         return (
@@ -25,9 +31,29 @@ function VideoItem(data) {
         );
     };
 
+    const wrapperRef = useRef(null);
+    const [wrapperElement, setWrapperElement] = useState(null);
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.9,
+    };
+
+    const isVisible = useElementOnScreen(options, wrapperRef);
+    useEffect(() => {
+        setWrapperElement(wrapperRef.current);
+        return () => { };
+    }, []);
+    useEffect(() => {
+        if (wrapperElement)
+            if (isVisible) {
+                dispatch(currentVideoPlayingSlice.actions.setIndex({ index: indexVideo }));
+            }
+    }, [isVisible, wrapperElement, dispatch, indexVideo, currentVideoPlayingSlice]);
     return (
         <>
-            <div className={cx('wrapper')} id={`video-${data.id}`}>
+            {loginModal}
+            <div className={cx('wrapper')} ref={wrapperRef} id={`video-${data.id}`}>
                 <Tippy interactive delay={[800, 200]} offset={[125, 10]} placement="bottom" render={renderPreview}>
                     <Link to={`/@${data.user.nickname}`} className={cx('link-avatar')}>
                         <Image className={cx('user-avatar-big')} src={data.user.avatar} alt={data.user.nickname} />
@@ -67,6 +93,7 @@ function VideoItem(data) {
                                         outline
                                         small
                                         className={cx('btn-follow')}
+                                        onClick={() => { setShowLoginModal(true) }}
                                     >
                                         Follow
                                     </Button>
@@ -82,7 +109,7 @@ function VideoItem(data) {
                             </h4>
                         </div>
                     </header>
-                    <VideoPlayer className={cx('player')} data={data} />
+                    <VideoPlayer className={cx('player')} data={data} isVisibile={isVisible} indexVideo={indexVideo} />
                 </div>{' '}
             </div>
         </>

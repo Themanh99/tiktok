@@ -5,6 +5,7 @@ const routes = {
     search: '/search',
     upload: '/upload',
     live: '/live',
+    video: '/video/:uuid',
 
 };
 

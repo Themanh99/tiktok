@@ -3,6 +3,15 @@
   min-height: 1000px;
   padding: 20px 0 26px 8px;
   margin-left: -18px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  bottom: 0;
+  position: fixed;
+  top: 60px;
+  z-index: 9999;
+  &:hover {
+    overflow-y: scroll;
+  }
 }
 
 .wrapper::-webkit-scrollbar {

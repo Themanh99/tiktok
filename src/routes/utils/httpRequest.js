@@ -10,6 +10,10 @@ const httpRequest = axios.create({
         type: 'formData',
     },
 })
+export const typeVideo = {
+    forYou: 'for-you',
+    following: 'following',
+};
 
 export const get = async (path, options = {}) => {
     const response = await httpRequest.get(path, options)
