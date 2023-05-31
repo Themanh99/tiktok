@@ -25,7 +25,7 @@ function Sidebar() {
         setShowDialog(false);
     }
 
-    const currentUser = useSelector((state) => state.auth.login.currentUser);;
+    const currentuser = useSelector((state) => state.auth.login.currentUser);
 
     return (
         <>
@@ -47,29 +47,23 @@ function Sidebar() {
                         to={config.routes.live}
                     />
                 </Menu>
-                {!currentUser ? (
-                    <>
-                        <div className={cx('log-in')}>
-                            <p>Log in to follow creators, like videos, and view comments.</p>
-                            <Button primary className={cx('btnlogin')} onClick={handleShowDialog}>Log in</Button>
-                            {showdialog &&
-                                <div className={cx('divmodalcontainer')}><div className={cx('divmodalmask')}></div>
-                                    <Login show={showdialog} onHide={handleHideDialog} />
-                                </div>
-                            }
-                        </div>
-                        <SuggestedAccounts label="Suggested accounts" />
-                        <Discover className={cx('Discover')} label="Discover" />
-                        <Footer className={cx('Footer')} />
-                    </>
+                {!currentuser ? (
+                    <div className={cx('log-in')}>
+                        <p>Log in to follow creators, like videos, and view comments.</p>
+                        <Button primary className={cx('btnlogin')} onClick={handleShowDialog}>Log in</Button>
+                        {showdialog &&
+                            <div className={cx('divmodalcontainer')}><div className={cx('divmodalmask')}></div>
+                                <Login show={showdialog} onHide={handleHideDialog} />
+                            </div>
+                        }
+                    </div>
                 ) : (
-                    <>
-                        <SuggestedAccounts label="Suggested accounts" />
-                        <FollowingAccounts label="Following accounts" />
-                        <Discover className={cx('Discover')} label="Discover" />
-                        <Footer className={cx('Footer')} />
-                    </>
+                    <FollowingAccounts label="Following accounts" />
+
                 )}
+                <SuggestedAccounts label="Suggested accounts" />
+                <Discover className={cx('Discover')} label="Discover" />
+                <Footer className={cx('Footer')} />
             </aside>
         </>
     );

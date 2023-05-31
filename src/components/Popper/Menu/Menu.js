@@ -24,10 +24,10 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn 
     const navigate = useNavigate();
     useEffect(() => {
         const handleLogOut = () => {
-            logOut(dispatch, navigate, id, token);
+            logOut(dispatch, navigate);
         };
         handleLogOut();
-    }, [dispatch, navigate, id, token]);
+    }, [dispatch, navigate]);
 
     const renderItems = () => {
         return current.data.map((item, index) => {

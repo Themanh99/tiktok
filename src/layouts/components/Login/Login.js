@@ -16,7 +16,6 @@ function Login({ show, onHide }) {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const newUser = {
