@@ -1,8 +1,8 @@
 import Linkify from 'linkify-react';
 import 'linkify-plugin-hashtag';
-import PropTypes from 'prop-types';
+type HashTagProps = { children: React.ReactNode };
 
-function HashTag({ children }) {
+function HashTag({ children }: HashTagProps) {
 
     const optionsHashTag = {
         formatHref: {
@@ -17,7 +17,4 @@ function HashTag({ children }) {
     );
 }
 
-HashTag.propTypes = {
-    children: PropTypes.node.isRequired,
-};
 export default HashTag;

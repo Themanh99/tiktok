@@ -8,9 +8,9 @@ function App() {
     <Router>
       <div className='App'>
         <Routes>
-          {publicRoutes.map((route, index) => {
+          {publicRoutes.map((route: any, index: number) => {
             const Page = route.component;
-            let Layout = DefaultLayout
+            let Layout = DefaultLayout as React.ComponentType<any> | typeof Fragment
             if (route.layout) {
               Layout = route.layout
             } else if (route.layout === null) {
@@ -34,3 +34,5 @@ function App() {
 }
 
 export default App;
+
+

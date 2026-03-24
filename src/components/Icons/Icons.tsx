@@ -1,3 +1,4 @@
+// @ts-nocheck
 import classNames from 'classnames/bind';
 import styles from './Icons.module.scss';
 

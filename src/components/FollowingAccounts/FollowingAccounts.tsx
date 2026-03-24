@@ -16,7 +16,7 @@ function FollowingAccounts({ label }) {
 
     useEffect(() => {
         const getAcounts = async () => {
-            const result = await userServices.getSuggested(page);
+            const result = await userServices.getSuggested(page, 20);
             setFollowingUsers(result);
             const lessResult = result.slice(0, 5);
             setAllFollowingUsers(lessResult);
