@@ -12,7 +12,7 @@ function useHandleMuted() {
     }, [prevVolume, muted, dispatch]);
 
     useEffect(() => {
-        const handKeyDown = (e) => {
+        const handKeyDown = (e: KeyboardEvent) => {
             if (e.keyCode === 77) {
                 handleMuted();
             }

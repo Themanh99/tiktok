@@ -106,7 +106,7 @@ export const PlayIconOutLine = ({ width = '1.8rem', height = '1.8rem', className
     </svg>
 );
 
-export const VolumeIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+export const VolumeIcon = ({ width = '2.4rem', height = '2.4rem', className = '' }) => (
     <svg
         className={className}
         width={width}
@@ -123,7 +123,7 @@ export const VolumeIcon = ({ width = '2.4rem', height = '2.4rem', className }) =
     </svg>
 );
 
-export const VolumeOffIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+export const VolumeOffIcon = ({ width = '2.4rem', height = '2.4rem', className = '' }) => (
     <svg
         className={className}
         width={width}

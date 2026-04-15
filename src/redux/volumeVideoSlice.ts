@@ -1,4 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+interface VolumeVideoState {
+    volume: number;
+    muted: boolean;
+    prevVolume: number;
+}
 
 const volumeVideoSlice = createSlice({
     name: 'volumeVideo',
@@ -6,7 +12,7 @@ const volumeVideoSlice = createSlice({
         volume: 0,
         muted: true,
         prevVolume: 100,
-    },
+    } as VolumeVideoState,
     reducers: {
         turnOnVolume: (state) => {
             state.volume = state.prevVolume;
@@ -20,7 +26,7 @@ const volumeVideoSlice = createSlice({
             state.volume = 0;
         },
 
-        setVolume: (state, action) => {
+        setVolume: (state, action: PayloadAction<number>) => {
             state.prevVolume = state.volume;
             state.volume = action.payload;
             state.muted = action.payload === 0;

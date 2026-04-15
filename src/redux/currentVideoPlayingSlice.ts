@@ -1,4 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+interface CurrentVideoPlayingState {
+    currentIndex: number;
+    list: unknown[];
+    length: number;
+    isPlayingModal: boolean;
+}
 
 const currentVideoPlayingSlice = createSlice({
     name: 'currentVideoPlaying',
@@ -7,18 +14,18 @@ const currentVideoPlayingSlice = createSlice({
         list: [],
         length: 0,
         isPlayingModal: false,
-    },
+    } as CurrentVideoPlayingState,
     reducers: {
-        setIndex: (state, action) => {
+        setIndex: (state, action: PayloadAction<{ index: number }>) => {
             state.currentIndex = action.payload.index;
         },
 
-        playInModal: (state, action) => {
+        playInModal: (state, action: PayloadAction<{ index: number }>) => {
             state.currentIndex = action.payload.index;
             state.isPlayingModal = true;
         },
 
-        getList: (state, action) => {
+        getList: (state, action: PayloadAction<{ list: unknown[] }>) => {
             state.list = action.payload.list;
             state.length = action.payload.list.length;
         },

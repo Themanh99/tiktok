@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useState } from 'react';
-const useElementOnScreen = (options, targetRef) => {
-    const [isVisibile, setIsVisible] = useState();
-    const callbackFunction = (entries) => {
+import { useEffect, useMemo, useState, RefObject } from 'react';
+
+const useElementOnScreen = (options: IntersectionObserverInit, targetRef: RefObject<Element | null>) => {
+    const [isVisibile, setIsVisible] = useState<boolean>();
+    const callbackFunction = (entries: IntersectionObserverEntry[]) => {
         const [entry] = entries; //const entry = entries[0]
         setIsVisible(entry.isIntersecting);
     };

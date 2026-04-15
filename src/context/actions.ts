@@ -6,7 +6,7 @@ export const turnOffVolume = () => ({
 export const turnOnVolume = () => ({
     type: TURN_ON_VOLUME,
 });
-export const setVolume = (percent) => ({
+export const setVolume = (percent: number) => ({
     type: SET_VOLUME,
     payload: percent,
 });
